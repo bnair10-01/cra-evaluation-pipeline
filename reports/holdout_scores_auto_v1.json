@@ -1,0 +1,356 @@
+{
+  "per_table": {
+    "table_d_distribution_measures": {
+      "false_addition": 2931,
+      "omission": 1804
+    },
+    "table_b_products_reviewed": {
+      "exact": 26,
+      "false_addition": 127,
+      "omission": 56,
+      "mismatch": 9
+    },
+    "table_e_examiner_conclusions": {
+      "false_addition": 1783,
+      "omission": 269,
+      "exact": 49,
+      "mismatch": 17
+    },
+    "ltd_peers": {
+      "mismatch": 3,
+      "omission": 32,
+      "exact": 15,
+      "false_addition": 19
+    },
+    "table_c_assessment_areas": {
+      "mismatch": 41,
+      "omission": 67,
+      "exact": 53,
+      "false_addition": 54
+    },
+    "table_a_exam_level": {
+      "exact": 94,
+      "omission": 29,
+      "false_addition": 36,
+      "mismatch": 28
+    }
+  },
+  "table_summary": {
+    "table_d_distribution_measures": {
+      "reference_rows": 1804,
+      "reference_coverage": 0.0,
+      "value_agreement_when_both_present": null,
+      "pipeline_only_rows": 2931
+    },
+    "table_b_products_reviewed": {
+      "reference_rows": 91,
+      "reference_coverage": 0.38461538461538464,
+      "value_agreement_when_both_present": 0.7428571428571429,
+      "pipeline_only_rows": 127
+    },
+    "table_e_examiner_conclusions": {
+      "reference_rows": 335,
+      "reference_coverage": 0.19701492537313434,
+      "value_agreement_when_both_present": 0.7424242424242424,
+      "pipeline_only_rows": 1783
+    },
+    "ltd_peers": {
+      "reference_rows": 50,
+      "reference_coverage": 0.36,
+      "value_agreement_when_both_present": 0.8333333333333334,
+      "pipeline_only_rows": 19
+    },
+    "table_c_assessment_areas": {
+      "reference_rows": 161,
+      "reference_coverage": 0.5838509316770186,
+      "value_agreement_when_both_present": 0.5638297872340425,
+      "pipeline_only_rows": 54
+    },
+    "table_a_exam_level": {
+      "reference_rows": 151,
+      "reference_coverage": 0.8079470198675497,
+      "value_agreement_when_both_present": 0.7704918032786885,
+      "pipeline_only_rows": 36
+    }
+  },
+  "critical_exact_excluding_conclusions": 0.08517350157728706,
+  "critical_denominator_excluding_conclusions": 1268,
+  "critical_exact": 0.09265614275909403,
+  "critical_denominator": 1457,
+  "critical_hits": 135,
+  "critical_false_additions": 2371,
+  "critical_exact_ci95": [
+    0.0788,
+    0.1086
+  ],
+  "conclusion_precision": 0.021484375,
+  "conclusion_recall": 0.11458333333333333,
+  "conclusion_reference_count": 96,
+  "conclusion_predicted_count": 512,
+  "conclusions": {
+    "reference": 96,
+    "predicted": 560,
+    "matched": 64,
+    "matched_exact": 35,
+    "lenient_precision": 0.11428571428571428,
+    "lenient_recall": 0.6666666666666666,
+    "exact_precision": 0.0625,
+    "exact_recall": 0.3645833333333333,
+    "level_agreement": 0.890625,
+    "category_agreement": 0.796875,
+    "criterion_agreement": 0.828125
+  },
+  "documents_expected": 12,
+  "documents_with_reference": 12,
+  "reference_complete": true,
+  "documents_missing_reference": [],
+  "strata_keyed_tables": {
+    "agency=FDIC": {
+      "hits": 56,
+      "denominator": 121,
+      "exact": 0.4628099173553719,
+      "ci95": [
+        0.3765,
+        0.5514
+      ]
+    },
+    "agency=FRB": {
+      "hits": 28,
+      "denominator": 62,
+      "exact": 0.45161290322580644,
+      "ci95": [
+        0.3342,
+        0.5747
+      ]
+    },
+    "agency=OCC": {
+      "hits": 24,
+      "denominator": 48,
+      "exact": 0.5,
+      "ci95": [
+        0.3639,
+        0.6361
+      ]
+    },
+    "era=1997-2004": {
+      "hits": 15,
+      "denominator": 32,
+      "exact": 0.46875,
+      "ci95": [
+        0.3087,
+        0.6355
+      ]
+    },
+    "era=2005-2009": {
+      "hits": 18,
+      "denominator": 32,
+      "exact": 0.5625,
+      "ci95": [
+        0.3933,
+        0.7183
+      ]
+    },
+    "era=2010-2014": {
+      "hits": 10,
+      "denominator": 28,
+      "exact": 0.35714285714285715,
+      "ci95": [
+        0.2071,
+        0.5417
+      ]
+    },
+    "era=2015-2019": {
+      "hits": 26,
+      "denominator": 71,
+      "exact": 0.36619718309859156,
+      "ci95": [
+        0.2637,
+        0.4824
+      ]
+    },
+    "era=2020+": {
+      "hits": 39,
+      "denominator": 68,
+      "exact": 0.5735294117647058,
+      "ci95": [
+        0.4552,
+        0.684
+      ]
+    },
+    "exam_type=intermediate small": {
+      "hits": 37,
+      "denominator": 65,
+      "exact": 0.5692307692307692,
+      "ci95": [
+        0.4483,
+        0.6824
+      ]
+    },
+    "exam_type=large": {
+      "hits": 36,
+      "denominator": 78,
+      "exact": 0.46153846153846156,
+      "ci95": [
+        0.3553,
+        0.5714
+      ]
+    },
+    "exam_type=small": {
+      "hits": 35,
+      "denominator": 88,
+      "exact": 0.3977272727272727,
+      "ci95": [
+        0.3018,
+        0.5022
+      ]
+    },
+    "scan_status=scanned": {
+      "hits": 3,
+      "denominator": 14,
+      "exact": 0.21428571428571427,
+      "ci95": [
+        0.0757,
+        0.4759
+      ]
+    },
+    "scan_status=text_based": {
+      "hits": 105,
+      "denominator": 217,
+      "exact": 0.4838709677419355,
+      "ci95": [
+        0.4182,
+        0.5501
+      ]
+    }
+  },
+  "strata": {
+    "agency=FDIC": {
+      "hits": 66,
+      "denominator": 327,
+      "exact": 0.2018348623853211,
+      "ci95": [
+        0.1619,
+        0.2487
+      ]
+    },
+    "agency=FRB": {
+      "hits": 36,
+      "denominator": 976,
+      "exact": 0.036885245901639344,
+      "ci95": [
+        0.0268,
+        0.0506
+      ]
+    },
+    "agency=OCC": {
+      "hits": 33,
+      "denominator": 154,
+      "exact": 0.21428571428571427,
+      "ci95": [
+        0.1568,
+        0.2856
+      ]
+    },
+    "era=1997-2004": {
+      "hits": 19,
+      "denominator": 71,
+      "exact": 0.2676056338028169,
+      "ci95": [
+        0.1785,
+        0.3805
+      ]
+    },
+    "era=2005-2009": {
+      "hits": 23,
+      "denominator": 116,
+      "exact": 0.19827586206896552,
+      "ci95": [
+        0.1359,
+        0.28
+      ]
+    },
+    "era=2010-2014": {
+      "hits": 18,
+      "denominator": 68,
+      "exact": 0.2647058823529412,
+      "ci95": [
+        0.1745,
+        0.3801
+      ]
+    },
+    "era=2015-2019": {
+      "hits": 33,
+      "denominator": 197,
+      "exact": 0.16751269035532995,
+      "ci95": [
+        0.1218,
+        0.2259
+      ]
+    },
+    "era=2020+": {
+      "hits": 42,
+      "denominator": 1005,
+      "exact": 0.041791044776119404,
+      "ci95": [
+        0.0311,
+        0.056
+      ]
+    },
+    "exam_type=intermediate small": {
+      "hits": 41,
+      "denominator": 972,
+      "exact": 0.04218106995884774,
+      "ci95": [
+        0.0312,
+        0.0567
+      ]
+    },
+    "exam_type=large": {
+      "hits": 38,
+      "denominator": 254,
+      "exact": 0.14960629921259844,
+      "ci95": [
+        0.111,
+        0.1987
+      ]
+    },
+    "exam_type=small": {
+      "hits": 56,
+      "denominator": 231,
+      "exact": 0.24242424242424243,
+      "ci95": [
+        0.1917,
+        0.3016
+      ]
+    },
+    "scan_status=scanned": {
+      "hits": 8,
+      "denominator": 33,
+      "exact": 0.24242424242424243,
+      "ci95": [
+        0.1283,
+        0.4102
+      ]
+    },
+    "scan_status=text_based": {
+      "hits": 127,
+      "denominator": 1424,
+      "exact": 0.08918539325842696,
+      "ci95": [
+        0.0755,
+        0.1051
+      ]
+    }
+  },
+  "uncovered_strata": [],
+  "gates": {
+    "critical_exact": null,
+    "conclusion_precision": null,
+    "conclusion_recall": null
+  },
+  "passed": null,
+  "reference_sha256": "0ed50bcdc7c1f1b7adee9e31c853160453d5804c93542503d7c0762d633b4a96",
+  "prediction_sha256": "5e9d3729b1ed6f57ede6a221feb76c61f8a76d8eb8062b831aa5544886d1ef87",
+  "reference_kind": "model_generated",
+  "label": "AGREEMENT WITH A MODEL-GENERATED REFERENCE: not accuracy, not validation, cannot pass"
+}

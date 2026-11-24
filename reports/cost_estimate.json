@@ -1,0 +1,449 @@
+{
+  "price_version": "2026-11-22",
+  "model": "claude-sonnet-5-5",
+  "documents": [
+    {
+      "pe_id": "FRAME_4aa042a6e9b37eedd4a106ae",
+      "agency": "OCC",
+      "pages": 363,
+      "calls": 60,
+      "input_tokens": 1020992,
+      "expected_output_tokens": 205800,
+      "expected_usd": 4.1,
+      "worst_case_usd": 7.922
+    },
+    {
+      "pe_id": "FRAME_d00ad57ef5e6e03a5f04a241",
+      "agency": "FRB",
+      "pages": 293,
+      "calls": 51,
+      "input_tokens": 817514,
+      "expected_output_tokens": 173600,
+      "expected_usd": 3.371,
+      "worst_case_usd": 6.595
+    },
+    {
+      "pe_id": "FRAME_1053d7da8d179bd20eb8adf5",
+      "agency": "OCC",
+      "pages": 180,
+      "calls": 37,
+      "input_tokens": 542231,
+      "expected_output_tokens": 130200,
+      "expected_usd": 2.386,
+      "worst_case_usd": 4.804
+    },
+    {
+      "pe_id": "FRAME_ca1e62fe299cf90a96adb4dc",
+      "agency": "FDIC",
+      "pages": 98,
+      "calls": 27,
+      "input_tokens": 398157,
+      "expected_output_tokens": 93800,
+      "expected_usd": 1.734,
+      "worst_case_usd": 3.476
+    },
+    {
+      "pe_id": "FRAME_d99bcb37f67d5f59642fe7f9",
+      "agency": "FRB",
+      "pages": 66,
+      "calls": 15,
+      "input_tokens": 242744,
+      "expected_output_tokens": 51800,
+      "expected_usd": 1.003,
+      "worst_case_usd": 1.965
+    },
+    {
+      "pe_id": "FRAME_cf705f46d63844d9ffc9fa2c",
+      "agency": "FRB",
+      "pages": 112,
+      "calls": 13,
+      "input_tokens": 244992,
+      "expected_output_tokens": 40600,
+      "expected_usd": 0.896,
+      "worst_case_usd": 1.65
+    },
+    {
+      "pe_id": "FRAME_2c47a2c551989cd3febfb6c4",
+      "agency": "FRB",
+      "pages": 44,
+      "calls": 13,
+      "input_tokens": 189455,
+      "expected_output_tokens": 43400,
+      "expected_usd": 0.813,
+      "worst_case_usd": 1.619
+    },
+    {
+      "pe_id": "FRAME_565c8162e0c156782da3e294",
+      "agency": "FDIC",
+      "pages": 53,
+      "calls": 12,
+      "input_tokens": 170078,
+      "expected_output_tokens": 39200,
+      "expected_usd": 0.732,
+      "worst_case_usd": 1.46
+    },
+    {
+      "pe_id": "FRAME_18f2daa0fd45d27e4ff77547",
+      "agency": "FDIC",
+      "pages": 40,
+      "calls": 10,
+      "input_tokens": 127030,
+      "expected_output_tokens": 33600,
+      "expected_usd": 0.59,
+      "worst_case_usd": 1.214
+    },
+    {
+      "pe_id": "FRAME_a9b72db584361ad9d7904ffc",
+      "agency": "FDIC",
+      "pages": 38,
+      "calls": 9,
+      "input_tokens": 122054,
+      "expected_output_tokens": 29400,
+      "expected_usd": 0.538,
+      "worst_case_usd": 1.084
+    },
+    {
+      "pe_id": "FRAME_b77ecdb06eb36a2e890b63cc",
+      "agency": "FRB",
+      "pages": 27,
+      "calls": 9,
+      "input_tokens": 123824,
+      "expected_output_tokens": 28000,
+      "expected_usd": 0.528,
+      "worst_case_usd": 1.048
+    },
+    {
+      "pe_id": "FRAME_6f829afd84051e6a2b6f14b5",
+      "agency": "FDIC",
+      "pages": 34,
+      "calls": 9,
+      "input_tokens": 110057,
+      "expected_output_tokens": 29400,
+      "expected_usd": 0.514,
+      "worst_case_usd": 1.06
+    },
+    {
+      "pe_id": "FRAME_8e7df6fbc6718c2be6ee5576",
+      "agency": "OCC",
+      "pages": 40,
+      "calls": 9,
+      "input_tokens": 101715,
+      "expected_output_tokens": 29400,
+      "expected_usd": 0.497,
+      "worst_case_usd": 1.043
+    },
+    {
+      "pe_id": "FRAME_4686f296a373e9c18c1f35ee",
+      "agency": "OCC",
+      "pages": 25,
+      "calls": 8,
+      "input_tokens": 103716,
+      "expected_output_tokens": 25200,
+      "expected_usd": 0.459,
+      "worst_case_usd": 0.927
+    },
+    {
+      "pe_id": "FRAME_e87b42762773ffee25bea6d4",
+      "agency": "OCC",
+      "pages": 26,
+      "calls": 8,
+      "input_tokens": 88833,
+      "expected_output_tokens": 25200,
+      "expected_usd": 0.43,
+      "worst_case_usd": 0.898
+    },
+    {
+      "pe_id": "FRAME_f5e0ad5c99222aa447feb183",
+      "agency": "FRB",
+      "pages": 19,
+      "calls": 8,
+      "input_tokens": 88323,
+      "expected_output_tokens": 25200,
+      "expected_usd": 0.429,
+      "worst_case_usd": 0.897
+    },
+    {
+      "pe_id": "FRAME_058aaacbc3bb1d8fe9c04a8b",
+      "agency": "FDIC",
+      "pages": 26,
+      "calls": 8,
+      "input_tokens": 85554,
+      "expected_output_tokens": 25200,
+      "expected_usd": 0.423,
+      "worst_case_usd": 0.891
+    },
+    {
+      "pe_id": "FRAME_b6fda105c4dfb38f76ba7c54",
+      "agency": "FDIC",
+      "pages": 22,
+      "calls": 7,
+      "input_tokens": 86902,
+      "expected_output_tokens": 21000,
+      "expected_usd": 0.384,
+      "worst_case_usd": 0.774
+    },
+    {
+      "pe_id": "FRAME_4deb720a9117c8ca106fbc4d",
+      "agency": "FRB",
+      "pages": 22,
+      "calls": 7,
+      "input_tokens": 87247,
+      "expected_output_tokens": 21000,
+      "expected_usd": 0.384,
+      "worst_case_usd": 0.774
+    },
+    {
+      "pe_id": "FRAME_45ce6aabfa13f4a025717346",
+      "agency": "FDIC",
+      "pages": 18,
+      "calls": 7,
+      "input_tokens": 79840,
+      "expected_output_tokens": 21000,
+      "expected_usd": 0.37,
+      "worst_case_usd": 0.76
+    },
+    {
+      "pe_id": "FRAME_d01496ed75418cd7b2518781",
+      "agency": "OCC",
+      "pages": 19,
+      "calls": 7,
+      "input_tokens": 78415,
+      "expected_output_tokens": 21000,
+      "expected_usd": 0.367,
+      "worst_case_usd": 0.757
+    },
+    {
+      "pe_id": "FRAME_4a400e6706559c67c59e81e0",
+      "agency": "OCC",
+      "pages": 22,
+      "calls": 7,
+      "input_tokens": 76453,
+      "expected_output_tokens": 21000,
+      "expected_usd": 0.363,
+      "worst_case_usd": 0.753
+    },
+    {
+      "pe_id": "FRAME_7e2d8a6aeaef0f115631fed0",
+      "agency": "FDIC",
+      "pages": 18,
+      "calls": 7,
+      "input_tokens": 72681,
+      "expected_output_tokens": 21000,
+      "expected_usd": 0.355,
+      "worst_case_usd": 0.745
+    },
+    {
+      "pe_id": "FRAME_0a96fe21349db9620d1076dd",
+      "agency": "FDIC",
+      "pages": 18,
+      "calls": 7,
+      "input_tokens": 65221,
+      "expected_output_tokens": 21000,
+      "expected_usd": 0.34,
+      "worst_case_usd": 0.73
+    },
+    {
+      "pe_id": "FRAME_2991800a1d29b8d227639e69",
+      "agency": "FDIC",
+      "pages": 16,
+      "calls": 7,
+      "input_tokens": 63164,
+      "expected_output_tokens": 21000,
+      "expected_usd": 0.336,
+      "worst_case_usd": 0.726
+    },
+    {
+      "pe_id": "FRAME_b8582dc0580f26cf494b0867",
+      "agency": "FDIC",
+      "pages": 13,
+      "calls": 7,
+      "input_tokens": 62835,
+      "expected_output_tokens": 21000,
+      "expected_usd": 0.336,
+      "worst_case_usd": 0.726
+    },
+    {
+      "pe_id": "FRAME_5642ac6857a65a0b5389aa70",
+      "agency": "FRB",
+      "pages": 18,
+      "calls": 7,
+      "input_tokens": 60721,
+      "expected_output_tokens": 21000,
+      "expected_usd": 0.331,
+      "worst_case_usd": 0.721
+    },
+    {
+      "pe_id": "FRAME_77f9056eb6e3cbe515316839",
+      "agency": "FDIC",
+      "pages": 15,
+      "calls": 7,
+      "input_tokens": 59849,
+      "expected_output_tokens": 21000,
+      "expected_usd": 0.33,
+      "worst_case_usd": 0.72
+    },
+    {
+      "pe_id": "FRAME_43fa96c8c45e6cfec4128977",
+      "agency": "FRB",
+      "pages": 23,
+      "calls": 7,
+      "input_tokens": 57299,
+      "expected_output_tokens": 21000,
+      "expected_usd": 0.325,
+      "worst_case_usd": 0.715
+    },
+    {
+      "pe_id": "FRAME_c12a15f968d6af8e8ea538c8",
+      "agency": "FRB",
+      "pages": 16,
+      "calls": 7,
+      "input_tokens": 57303,
+      "expected_output_tokens": 21000,
+      "expected_usd": 0.325,
+      "worst_case_usd": 0.715
+    },
+    {
+      "pe_id": "FRAME_3c315a1bfe2df8223f2084ef",
+      "agency": "OCC",
+      "pages": 20,
+      "calls": 7,
+      "input_tokens": 56612,
+      "expected_output_tokens": 21000,
+      "expected_usd": 0.323,
+      "worst_case_usd": 0.713
+    },
+    {
+      "pe_id": "FRAME_2dc0b7fdf23cefdefdf7e511",
+      "agency": "FDIC",
+      "pages": 13,
+      "calls": 7,
+      "input_tokens": 53231,
+      "expected_output_tokens": 21000,
+      "expected_usd": 0.316,
+      "worst_case_usd": 0.706
+    },
+    {
+      "pe_id": "FRAME_022334bd4c4aa6a525876283",
+      "agency": "FDIC",
+      "pages": 14,
+      "calls": 7,
+      "input_tokens": 52611,
+      "expected_output_tokens": 21000,
+      "expected_usd": 0.315,
+      "worst_case_usd": 0.705
+    },
+    {
+      "pe_id": "FRAME_35aec1900f646ac52c9e079e",
+      "agency": "OCC",
+      "pages": 9,
+      "calls": 7,
+      "input_tokens": 50172,
+      "expected_output_tokens": 21000,
+      "expected_usd": 0.31,
+      "worst_case_usd": 0.7
+    },
+    {
+      "pe_id": "FRAME_940218f4ba7302c8d8d1910a",
+      "agency": "OCC",
+      "pages": 9,
+      "calls": 7,
+      "input_tokens": 47081,
+      "expected_output_tokens": 21000,
+      "expected_usd": 0.304,
+      "worst_case_usd": 0.694
+    },
+    {
+      "pe_id": "FRAME_8140b1f4bb94cc81bdcfd8dd",
+      "agency": "FRB",
+      "pages": 11,
+      "calls": 6,
+      "input_tokens": 50939,
+      "expected_output_tokens": 16800,
+      "expected_usd": 0.27,
+      "worst_case_usd": 0.582
+    },
+    {
+      "pe_id": "FRAME_5928cb3436b9c8eeaedab355",
+      "agency": "FRB",
+      "pages": 15,
+      "calls": 6,
+      "input_tokens": 45355,
+      "expected_output_tokens": 16800,
+      "expected_usd": 0.259,
+      "worst_case_usd": 0.571
+    },
+    {
+      "pe_id": "FRAME_b03a7c692e176ccb5b598c67",
+      "agency": "FRB",
+      "pages": 11,
+      "calls": 6,
+      "input_tokens": 39793,
+      "expected_output_tokens": 16800,
+      "expected_usd": 0.248,
+      "worst_case_usd": 0.56
+    },
+    {
+      "pe_id": "FRAME_26e7b1e4a89a31396a16edb8",
+      "agency": "FRB",
+      "pages": 9,
+      "calls": 6,
+      "input_tokens": 39013,
+      "expected_output_tokens": 16800,
+      "expected_usd": 0.246,
+      "worst_case_usd": 0.558
+    },
+    {
+      "pe_id": "FRAME_5a86dc796e595bfe4f448ba7",
+      "agency": "OCC",
+      "pages": 8,
+      "calls": 6,
+      "input_tokens": 36465,
+      "expected_output_tokens": 16800,
+      "expected_usd": 0.241,
+      "worst_case_usd": 0.553
+    },
+    {
+      "pe_id": "FRAME_4b080bc26207add270d8874e",
+      "agency": "OCC",
+      "pages": 7,
+      "calls": 6,
+      "input_tokens": 34472,
+      "expected_output_tokens": 16800,
+      "expected_usd": 0.237,
+      "worst_case_usd": 0.549
+    },
+    {
+      "pe_id": "FRAME_6a88e60c04d50c8b81e01add",
+      "agency": "OCC",
+      "pages": 7,
+      "calls": 6,
+      "input_tokens": 32325,
+      "expected_output_tokens": 16800,
+      "expected_usd": 0.233,
+      "worst_case_usd": 0.545
+    },
+    {
+      "pe_id": "FRAME_242ecbe183d683aaa4228f59",
+      "agency": "OCC",
+      "pages": 8,
+      "calls": 6,
+      "input_tokens": 28393,
+      "expected_output_tokens": 16800,
+      "expected_usd": 0.225,
+      "worst_case_usd": 0.537
+    },
+    {
+      "pe_id": "FRAME_3473a2926396f80f37c7295b",
+      "agency": "OCC",
+      "pages": 5,
+      "calls": 6,
+      "input_tokens": 25741,
+      "expected_output_tokens": 16800,
+      "expected_usd": 0.219,
+      "worst_case_usd": 0.531
+    }
+  ],
+  "total_expected_usd": 27.73,
+  "total_worst_case_usd": 56.67,
+  "note": "Expected output assumes ~35% of each call's max_tokens (including thinking). Worst case reserves 100%. Input uses a conservative 2.5 bytes/token bound; live calls use count_tokens. Batch API would halve both."
+}

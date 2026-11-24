@@ -1,0 +1,315 @@
+{
+  "scope": "Development manifest only; candidate histories may include other years",
+  "counts": [
+    {
+      "agency": "FDIC",
+      "exam_year": "1990",
+      "identified": 4,
+      "selected": 0,
+      "downloaded": 0,
+      "failed": 0,
+      "unresolved": 4,
+      "scan_status": "not_assessed"
+    },
+    {
+      "agency": "FDIC",
+      "exam_year": "1991",
+      "identified": 10,
+      "selected": 0,
+      "downloaded": 0,
+      "failed": 0,
+      "unresolved": 10,
+      "scan_status": "not_assessed"
+    },
+    {
+      "agency": "FDIC",
+      "exam_year": "1992",
+      "identified": 7,
+      "selected": 0,
+      "downloaded": 0,
+      "failed": 0,
+      "unresolved": 7,
+      "scan_status": "not_assessed"
+    },
+    {
+      "agency": "FDIC",
+      "exam_year": "1993",
+      "identified": 11,
+      "selected": 0,
+      "downloaded": 0,
+      "failed": 0,
+      "unresolved": 11,
+      "scan_status": "not_assessed"
+    },
+    {
+      "agency": "FDIC",
+      "exam_year": "1994",
+      "identified": 6,
+      "selected": 0,
+      "downloaded": 0,
+      "failed": 0,
+      "unresolved": 6,
+      "scan_status": "not_assessed"
+    },
+    {
+      "agency": "FDIC",
+      "exam_year": "1995",
+      "identified": 10,
+      "selected": 0,
+      "downloaded": 0,
+      "failed": 0,
+      "unresolved": 10,
+      "scan_status": "not_assessed"
+    },
+    {
+      "agency": "FDIC",
+      "exam_year": "1996",
+      "identified": 8,
+      "selected": 0,
+      "downloaded": 0,
+      "failed": 0,
+      "unresolved": 8,
+      "scan_status": "not_assessed"
+    },
+    {
+      "agency": "FDIC",
+      "exam_year": "1997",
+      "identified": 5,
+      "selected": 0,
+      "downloaded": 0,
+      "failed": 0,
+      "unresolved": 5,
+      "scan_status": "not_assessed"
+    },
+    {
+      "agency": "FDIC",
+      "exam_year": "1998",
+      "identified": 3,
+      "selected": 0,
+      "downloaded": 0,
+      "failed": 0,
+      "unresolved": 3,
+      "scan_status": "not_assessed"
+    },
+    {
+      "agency": "FDIC",
+      "exam_year": "1999",
+      "identified": 7,
+      "selected": 0,
+      "downloaded": 0,
+      "failed": 0,
+      "unresolved": 7,
+      "scan_status": "not_assessed"
+    },
+    {
+      "agency": "FDIC",
+      "exam_year": "2000",
+      "identified": 1,
+      "selected": 0,
+      "downloaded": 0,
+      "failed": 0,
+      "unresolved": 1,
+      "scan_status": "not_assessed"
+    },
+    {
+      "agency": "FDIC",
+      "exam_year": "2002",
+      "identified": 4,
+      "selected": 0,
+      "downloaded": 0,
+      "failed": 0,
+      "unresolved": 4,
+      "scan_status": "not_assessed"
+    },
+    {
+      "agency": "FDIC",
+      "exam_year": "2003",
+      "identified": 2,
+      "selected": 0,
+      "downloaded": 0,
+      "failed": 0,
+      "unresolved": 2,
+      "scan_status": "not_assessed"
+    },
+    {
+      "agency": "FDIC",
+      "exam_year": "2004",
+      "identified": 2,
+      "selected": 0,
+      "downloaded": 0,
+      "failed": 0,
+      "unresolved": 2,
+      "scan_status": "not_assessed"
+    },
+    {
+      "agency": "FDIC",
+      "exam_year": "2005",
+      "identified": 3,
+      "selected": 0,
+      "downloaded": 0,
+      "failed": 0,
+      "unresolved": 3,
+      "scan_status": "not_assessed"
+    },
+    {
+      "agency": "FDIC",
+      "exam_year": "2007",
+      "identified": 4,
+      "selected": 0,
+      "downloaded": 0,
+      "failed": 0,
+      "unresolved": 4,
+      "scan_status": "not_assessed"
+    },
+    {
+      "agency": "FDIC",
+      "exam_year": "2008",
+      "identified": 2,
+      "selected": 0,
+      "downloaded": 0,
+      "failed": 0,
+      "unresolved": 2,
+      "scan_status": "not_assessed"
+    },
+    {
+      "agency": "FDIC",
+      "exam_year": "2009",
+      "identified": 1,
+      "selected": 0,
+      "downloaded": 0,
+      "failed": 0,
+      "unresolved": 1,
+      "scan_status": "not_assessed"
+    },
+    {
+      "agency": "FDIC",
+      "exam_year": "2010",
+      "identified": 4,
+      "selected": 0,
+      "downloaded": 0,
+      "failed": 0,
+      "unresolved": 4,
+      "scan_status": "not_assessed"
+    },
+    {
+      "agency": "FDIC",
+      "exam_year": "2012",
+      "identified": 3,
+      "selected": 0,
+      "downloaded": 0,
+      "failed": 0,
+      "unresolved": 3,
+      "scan_status": "not_assessed"
+    },
+    {
+      "agency": "FDIC",
+      "exam_year": "2013",
+      "identified": 1,
+      "selected": 0,
+      "downloaded": 0,
+      "failed": 0,
+      "unresolved": 1,
+      "scan_status": "not_assessed"
+    },
+    {
+      "agency": "FDIC",
+      "exam_year": "2015",
+      "identified": 3,
+      "selected": 1,
+      "downloaded": 1,
+      "failed": 0,
+      "unresolved": 2,
+      "scan_status": "not_assessed"
+    },
+    {
+      "agency": "FDIC",
+      "exam_year": "2016",
+      "identified": 2,
+      "selected": 0,
+      "downloaded": 0,
+      "failed": 0,
+      "unresolved": 2,
+      "scan_status": "not_assessed"
+    },
+    {
+      "agency": "FDIC",
+      "exam_year": "2017",
+      "identified": 1,
+      "selected": 0,
+      "downloaded": 0,
+      "failed": 0,
+      "unresolved": 1,
+      "scan_status": "not_assessed"
+    },
+    {
+      "agency": "FDIC",
+      "exam_year": "2018",
+      "identified": 3,
+      "selected": 0,
+      "downloaded": 0,
+      "failed": 0,
+      "unresolved": 3,
+      "scan_status": "not_assessed"
+    },
+    {
+      "agency": "FDIC",
+      "exam_year": "2019",
+      "identified": 1,
+      "selected": 0,
+      "downloaded": 0,
+      "failed": 0,
+      "unresolved": 1,
+      "scan_status": "not_assessed"
+    },
+    {
+      "agency": "FDIC",
+      "exam_year": "2021",
+      "identified": 4,
+      "selected": 0,
+      "downloaded": 0,
+      "failed": 0,
+      "unresolved": 4,
+      "scan_status": "not_assessed"
+    },
+    {
+      "agency": "FDIC",
+      "exam_year": "2022",
+      "identified": 1,
+      "selected": 0,
+      "downloaded": 0,
+      "failed": 0,
+      "unresolved": 1,
+      "scan_status": "not_assessed"
+    },
+    {
+      "agency": "FDIC",
+      "exam_year": "2024",
+      "identified": 3,
+      "selected": 1,
+      "downloaded": 1,
+      "failed": 0,
+      "unresolved": 2,
+      "scan_status": "not_assessed"
+    },
+    {
+      "agency": "OCC",
+      "exam_year": "2020",
+      "identified": 1,
+      "selected": 1,
+      "downloaded": 1,
+      "failed": 0,
+      "unresolved": 0,
+      "scan_status": "not_assessed"
+    },
+    {
+      "agency": "OCC",
+      "exam_year": "2023",
+      "identified": 1,
+      "selected": 1,
+      "downloaded": 1,
+      "failed": 0,
+      "unresolved": 0,
+      "scan_status": "not_assessed"
+    }
+  ]
+}

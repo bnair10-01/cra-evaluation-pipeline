@@ -1,0 +1,19 @@
+prompt: d_layout v2
+
+Target: locate distribution tables. You do NOT read any numbers. Identify each table block of income, revenue, or tract distributions on the pages, and describe where its rows are and what its columns mean. Software reads the cells afterwards.
+
+For each table block (one entry per page if the table continues across pages):
+- page: physical PDF page. first_line, last_line: the line numbers (the M of [pN.lM]) of the first and last DATA rows on that page (rows such as Low/Moderate/Middle/Upper/Not Available/revenue classes), excluding headers and totals you do not want read (total rows may be included; they are skipped when their label is not a category).
+- table_label: the printed label such as "Table 11" or "Table P" ("" if none). title: the printed table title ("" if none).
+- aa_ref: the assessment area the table belongs to as printed ("" if the evaluation covers a single area and the table does not name one). product_ref: "home mortgage", "small business", "small farm", "consumer" or other product the table covers ("" if unclear).
+- dimension: "borrower income", "business revenue", "farm revenue", or "census tract income".
+- years: the period/years printed for the table ("" if none). demographic_base: the complete printed heading of the demographic comparison column (for example "Families by Family Income", "Owner-Occupied Housing Units", "Businesses") ("" if the table has none). source_note: the printed source line ("" if none).
+- columns: the meaning of EACH numeric value on a data row, in the order the numbers appear left to right. Allowed meanings: bank_count, bank_count_pct, bank_dollars, bank_dollar_pct, aggregate_pct, demographic_pct, ignore. Use "ignore" for any other numeric column so the count matches the row exactly. header: the printed column heading text for that column ("" if none).
+Only include tables where each data row is a single text line containing its label followed by its numbers. Skip tables that are not income/revenue/tract distribution tables (for example the tract-count or housing-cost tables), and say nothing about them.
+
+
+Two table shapes exist; set `kind` for each entry.
+
+1. `category_rows`: the categories (Low, Moderate, Middle, Upper, Not Available, revenue classes) are the ROWS and each row is one text line "label number number ...". Use first_line/last_line (line numbers on `page`). Set table_index, first_row, last_row to 0. In `columns`, leave `category` empty ("").
+
+2. `area_rows`: the assessment AREAS are the rows and the income categories (or revenue classes) are column groups across the page, e.g. "Low-Income Tracts | Moderate-Income Tracts | ...", each group having several measure columns. These appear in the "TABLE ... (cell extraction)" views after the page text. Use `table_index` (the K of [pN.tK.rM]) and first_row/last_row (the M of the first and last area rows; the total row may be inside the range, it is skipped). Set first_line/last_line to 0. Column 0 of the table is the area label and is NOT listed in `columns`. `columns` lists every remaining cell of a data row, left to right: the same number of entries as numeric cells in a data row. For each, give `meaning` and the income `category` it belongs to (for example for "Low-Income Tracts: % of Owner-Occupied Housing Units | % Bank Loans | Aggregate" -> demographic_pct, bank_count_pct, aggregate_pct, all with category "low"). Columns that describe the area as a whole (counts, dollars, percent of total, overall market) are meaning "ignore" with category "". Read the header words carefully: "% Bank Loans" is bank_count_pct (or bank_dollar_pct when the table is dollars); "Aggregate" is aggregate_pct; "% of Owner-Occupied Housing Units", "% of Families", "% Businesses", "% Farms" are demographic_pct. demographic_base is the complete printed phrase for that comparison column (for example "% of Owner-Occupied Housing Units").

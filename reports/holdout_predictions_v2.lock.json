@@ -1,0 +1,8 @@
+{
+  "file": "holdout_predictions_v2.json",
+  "sha256": "87e87786d34162981a71036224d5fc1d1d388aa80065a8b8a38a557d16d89189",
+  "freeze_hash": "b81ccd324807313e8922b655c1e39233bffe34a4ee8ba5d4e6c4fa0a6266c131",
+  "locked_at": "2026-11-22T21:45:41.811949+00:00",
+  "supersedes": "holdout_predictions.json (v1, freeze_v1)",
+  "note": "Produced after the holdout had been compared in aggregate; not a clean out-of-sample test."
+}

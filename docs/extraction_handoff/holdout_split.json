@@ -1,0 +1,53 @@
+{
+  "seed": 20261102,
+  "development": [
+    "FRAME_0a96fe21349db9620d1076dd",
+    "FRAME_4686f296a373e9c18c1f35ee",
+    "FRAME_7e2d8a6aeaef0f115631fed0",
+    "FRAME_d01496ed75418cd7b2518781"
+  ],
+  "holdout": [
+    "FRAME_022334bd4c4aa6a525876283",
+    "FRAME_18f2daa0fd45d27e4ff77547",
+    "FRAME_2dc0b7fdf23cefdefdf7e511",
+    "FRAME_3473a2926396f80f37c7295b",
+    "FRAME_3c315a1bfe2df8223f2084ef",
+    "FRAME_b6fda105c4dfb38f76ba7c54",
+    "FRAME_b8582dc0580f26cf494b0867",
+    "FRAME_c12a15f968d6af8e8ea538c8",
+    "FRAME_ca1e62fe299cf90a96adb4dc",
+    "FRAME_cf705f46d63844d9ffc9fa2c",
+    "FRAME_d99bcb37f67d5f59642fe7f9",
+    "FRAME_e87b42762773ffee25bea6d4"
+  ],
+  "calibration": [
+    "FRAME_058aaacbc3bb1d8fe9c04a8b",
+    "FRAME_1053d7da8d179bd20eb8adf5",
+    "FRAME_242ecbe183d683aaa4228f59",
+    "FRAME_26e7b1e4a89a31396a16edb8",
+    "FRAME_2991800a1d29b8d227639e69",
+    "FRAME_2c47a2c551989cd3febfb6c4",
+    "FRAME_35aec1900f646ac52c9e079e",
+    "FRAME_43fa96c8c45e6cfec4128977",
+    "FRAME_45ce6aabfa13f4a025717346",
+    "FRAME_4a400e6706559c67c59e81e0",
+    "FRAME_4aa042a6e9b37eedd4a106ae",
+    "FRAME_4b080bc26207add270d8874e",
+    "FRAME_4deb720a9117c8ca106fbc4d",
+    "FRAME_5642ac6857a65a0b5389aa70",
+    "FRAME_565c8162e0c156782da3e294",
+    "FRAME_5928cb3436b9c8eeaedab355",
+    "FRAME_5a86dc796e595bfe4f448ba7",
+    "FRAME_6a88e60c04d50c8b81e01add",
+    "FRAME_6f829afd84051e6a2b6f14b5",
+    "FRAME_77f9056eb6e3cbe515316839",
+    "FRAME_8140b1f4bb94cc81bdcfd8dd",
+    "FRAME_8e7df6fbc6718c2be6ee5576",
+    "FRAME_940218f4ba7302c8d8d1910a",
+    "FRAME_a9b72db584361ad9d7904ffc",
+    "FRAME_b03a7c692e176ccb5b598c67",
+    "FRAME_b77ecdb06eb36a2e890b63cc",
+    "FRAME_d00ad57ef5e6e03a5f04a241",
+    "FRAME_f5e0ad5c99222aa447feb183"
+  ]
+}

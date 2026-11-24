@@ -1,0 +1,22 @@
+[
+  {
+    "original": "original_outputs/cra_tables/schema.sql",
+    "destination": "schemas/research_schema.sql",
+    "sha256": "7ad6f1a3790b4be9e77d89856550dfcf8aad08b9b0c4b8e1702876e1241be8e5"
+  },
+  {
+    "original": "original_outputs/cra_tables/cra_tables.sqlite",
+    "destination": "data/research.sqlite",
+    "sha256": "9fe93045f06502873d25a77ffe844bf766dae5ea54c39d3e02464d6523e87856"
+  },
+  {
+    "original": "original_outputs/cra_tables/data_dictionary.md",
+    "destination": "docs/research_data_dictionary.md",
+    "sha256": "4082742a2de0f3ec27519152b2ffc668c0731b57c55ad58d1edeab937d575af4"
+  },
+  {
+    "original": "original_outputs/cra_tables/README.md",
+    "destination": "docs/original_research_README.md",
+    "sha256": "35e72c7f0944a2caefa361b0ff609b0cf46c12abdecf8b08a85ca9caa1bb2f95"
+  }
+]

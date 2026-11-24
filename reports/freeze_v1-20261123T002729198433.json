@@ -1,0 +1,49 @@
+{
+  "model": "claude-sonnet-5-5",
+  "price_version": "2026-11-22",
+  "effort": "low",
+  "efforts": {},
+  "prompts": {
+    "a_exam": "cd94e0a31025909c940119635f71904ebaceadc5eceab86135207ff77da89774",
+    "b_products": "44d88de29daf326e992b0b1522da11f2420ce3864a39f4a59d1c546778f8780a",
+    "c_areas": "058e258646b7bbb8f59c8188a1e7a476f091aa75731ca09666e9c4831acaf835",
+    "d_layout": "374912c9a66aab0abb9d3fc8486bc15e6c390db5d5b2f9020d4171b25f1a9241",
+    "e_conclusions": "21aff7e3db5f283e3294f17d188345858086cfcc3fcabb17b10c0d84337d1cad",
+    "peers": "15a32ea069c8887ac481f79ce4ea38ae8d66a2eba5afa6a13a75d1365155ede0",
+    "system": "9b1c5ac75a3aa655cc22bc2689b8cfc90d9e87b107feb2d7cfaf2c16c41f5570"
+  },
+  "schemas": {
+    "a": "a6e396723db13dbb0b642d33d878b6a7e83042a3380cc44970cb762d0babc480",
+    "b": "3155a89f18522b6651cca21cbfae0404977dbce8cab40aee08ee1248c66d59ca",
+    "c": "33ea57e0439a583e527144fd5215986e12748e83ffc41c57a2322443ef183932",
+    "e": "e10091547681abe355ac8f99324f1f3a0964c77a84c24aa24fa2caa44e9485c6",
+    "peers": "b779cd0bc704cf1b5853c5cd202f53dbfbbb914164916fdaf831c19d299d2e43",
+    "d": "af22fa8221cfa0ad3fc93b57e0868505428dd9691a34565da36bb89ae1e69196"
+  },
+  "max_tokens": {
+    "a": 8000,
+    "b": 8000,
+    "c": 8000,
+    "e": 12000,
+    "peers": 4000,
+    "d": 8000
+  },
+  "max_chars": 60000,
+  "code": "32f22b4a5866adfa86b3d00e84b45b71d5b8171ac35b8faf526a5b6298dbf6c2",
+  "parser": "d1a3c5df58c170e5679d84c64d4bc76f48a04987b66bb7f4404ef030a4f880d1",
+  "field_inventory": "490e9b1048dd2e4e4c3a545e1783edf346d8d70eeb63ea11a31de70103169d82",
+  "research_schema": "7ad6f1a3790b4be9e77d89856550dfcf8aad08b9b0c4b8e1702876e1241be8e5",
+  "frozen_at": "2026-11-23T00:27:29.198216+00:00",
+  "note": "after calibration",
+  "frozen_keys": [
+    "model",
+    "effort",
+    "efforts",
+    "prompts",
+    "schemas",
+    "max_tokens",
+    "max_chars",
+    "parser"
+  ],
+  "freeze_hash": "f4f4bef53438248777eafc66101040254f4b5e9d033a80bac56b2d3466ae3592"
+}

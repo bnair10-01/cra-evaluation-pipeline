@@ -1,0 +1,6 @@
+{
+  "manifest": "reports/final_904bed5b30cc793e19d4.json",
+  "split": "docs/extraction_handoff/holdout_split.json",
+  "expected_documents": 44,
+  "scan_quota": 4
+}

@@ -1,0 +1,18 @@
+{
+  "FRAME_5928cb3436b9c8eeaedab355": {
+    "sha256": "81beaac94366d9066628ecb94cb62a28c361ca7965835f9f2ec0bd87a0cc63c5",
+    "review_note": "Visually checked PDF pages 1, 8, and 15; the whole-page scans contain report text and tables, consistent with the full-page raster check on all 15 pages."
+  },
+  "FRAME_d00ad57ef5e6e03a5f04a241": {
+    "sha256": "34c9e327f2e3b5bd75dca2d7dd66ae3cb120830536af2fd3bdba5a2b7c4ccb98",
+    "review_note": "Visually confirmed report content on physical pages 1, 147, and 293; each of 293 pages met full-page raster test."
+  },
+  "FRAME_b03a7c692e176ccb5b598c67": {
+    "sha256": "f103378dd14e6e13153f7908572e40d0593e5809a5ae1e173935ea9af98a66bf",
+    "review_note": "Visually confirmed report content on physical pages 1, 6, and 11; each of 11 pages met full-page raster test."
+  },
+  "FRAME_c12a15f968d6af8e8ea538c8": {
+    "sha256": "b2a1f4e6ff9a26ca2fa5b6c6e27e642ab64e2ff37b375f05e16cf2ecd893ce4d",
+    "review_note": "Visually confirmed report content on physical pages 1, 9, and 16; each of 16 pages met full-page raster test."
+  }
+}

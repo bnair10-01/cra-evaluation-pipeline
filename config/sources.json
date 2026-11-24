@@ -1,0 +1,33 @@
+{
+  "request_interval_seconds": 2,
+  "allowed_hosts": [
+    "www.occ.gov",
+    "occ.gov",
+    "crapes.fdic.gov",
+    "www.fdic.gov",
+    "www.federalreserve.gov"
+  ],
+  "robots_html_reviewed": [
+    "crapes.fdic.gov"
+  ],
+  "agencies": {
+    "OCC": {
+      "search_url": "https://www.occ.gov/publications-and-resources/tools/index-cra-search.html",
+      "year_listing_template": "https://www.occ.gov/topics/consumers-and-communities/cra/perfomance-evaluations-by-month/{year}/cra-performance-evaluations-{year}.html",
+      "policy_url": "https://www.occ.gov/about/policies/index-policies.html"
+    },
+    "FDIC": {
+      "search_url": "https://crapes.fdic.gov/",
+      "search_endpoint": "https://crapes.fdic.gov/api/getSearchResults",
+      "pdf_base": "https://crapes.fdic.gov/publish/",
+      "policy_url": "https://www.fdic.gov/policies"
+    },
+    "FRB": {
+      "search_url": "https://www.federalreserve.gov/apps/CRAPubWeb/CRA/BankRating",
+      "adapter_status": "search_form_and_browser_import"
+    },
+    "OTS": {
+      "adapter_status": "historical_coverage_unresolved"
+    }
+  }
+}

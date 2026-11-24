@@ -1,0 +1,24 @@
+[
+  {
+    "year": 1997,
+    "rows": 30,
+    "linked": 29,
+    "snapshot": "data/source_snapshots/f93bc9d86704fec1681988ca992e8f9241acda01c0cb070e036ca7b2e646ba48.bin",
+    "check": {
+      "status": "verified",
+      "sha256": "1c2fd19b83ba6047ea558db517289bdbf4475dc37ff381e92d0b3df12b6c14ac",
+      "bytes": 180954,
+      "path": "data/pilot_cache/FRB_746223_2018-02-05.pdf",
+      "final_url": "https://www.federalreserve.gov/apps/CRAPubWeb/CRA/DownloadPDF/746223_20180205",
+      "retrieval": "script",
+      "url": "https://www.federalreserve.gov/apps/CRAPubWeb/CRA/DownloadPDF/746223_20180205",
+      "listing": "https://www.federalreserve.gov/apps/CRAPubWeb/CRA/BankRatingResult",
+      "snapshot": "data/source_snapshots/6aa51b9bc69003d782266974dd33c11104c1f19995f1e26b24a540ec31513ec9.bin",
+      "scan_status": "text_based",
+      "pages": 13,
+      "image_pages": 0,
+      "text_pages": 13,
+      "uncertain_pages": 0
+    }
+  }
+]

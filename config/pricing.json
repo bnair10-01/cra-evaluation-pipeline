@@ -1,0 +1,19 @@
+{
+  "version": "2026-11-22",
+  "currency": "USD",
+  "unit": "per million tokens",
+  "verified_against": "Anthropic model table and Sonnet 5.5 notes read 2026-11-22; re-verify before any paid run (cra preflight --online prints this version).",
+  "models": {
+    "claude-sonnet-5-5": {
+      "input": 2.0,
+      "output": 10.0,
+      "cache_write_5m": 2.5,
+      "cache_write_1h": 4.0,
+      "cache_read": 0.1,
+      "batch_discount": 0.5,
+      "context_tokens": 1000000,
+      "max_output_tokens": 128000
+    }
+  },
+  "vision": {"patch_pixels": 28, "note": "tokens = ceil(width/28) * ceil(height/28), after the model's own downscaling"}
+}

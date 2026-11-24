@@ -1,0 +1,2 @@
+# Install package and its portable dependencies
+-e .

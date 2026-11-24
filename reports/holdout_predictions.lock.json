@@ -1,0 +1,11 @@
+{
+  "file": "holdout_predictions.json",
+  "sha256": "5e9d3729b1ed6f57ede6a221feb76c61f8a76d8eb8062b831aa5544886d1ef87",
+  "rows": 5285,
+  "documents": 12,
+  "expected_documents": 12,
+  "all_expected_present": true,
+  "freeze_hash": "b6b49f42b014a58fa5c958f9123ef831be2e9d3ec59f7d24c34be36d2a90a4c5",
+  "locked_at": "2026-11-22T20:16:09.155136+00:00",
+  "note": "Uncorrected model predictions, exported before any reference was submitted; do not edit."
+}

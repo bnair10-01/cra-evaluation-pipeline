@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "description": "Predeclared scoring inventory. Freeze (hash recorded by `cra freeze`) before any holdout scoring.",
+  "critical_fields": {
+    "table_a_exam_level": ["agency_id", "exam_date", "exam_type", "rating_overall", "rating_lending", "rating_cd", "rating_investment", "rating_service", "prior_exam_date", "prior_rating"],
+    "table_b_products_reviewed": ["product", "is_major_product", "data_source", "universe_count", "sample_count", "inside_aa_count_pct", "inside_aa_dollar_pct"],
+    "table_c_assessment_areas": ["aa_name", "review_scope"],
+    "table_d_distribution_measures": ["bank_count", "bank_count_pct", "bank_dollar_pct", "aggregate_pct", "demographic_pct"],
+    "table_e_examiner_conclusions": ["label_verbatim", "level"],
+    "ltd_peers": ["institution_name", "ltd_ratio_stated"]
+  },
+  "row_identity": {
+    "table_a_exam_level": [],
+    "table_b_products_reviewed": ["product"],
+    "table_c_assessment_areas": ["aa_name"],
+    "table_d_distribution_measures": ["aa_name", "product", "dimension", "category", "years"],
+    "table_e_examiner_conclusions": ["criterion", "category", "aa_name", "product", "years"],
+    "ltd_peers": ["institution_name"]
+  },
+  "required_tables_by_exam_type": {
+    "small": ["table_a_exam_level", "table_b_products_reviewed", "table_c_assessment_areas", "table_e_examiner_conclusions"],
+    "intermediate small": ["table_a_exam_level", "table_b_products_reviewed", "table_c_assessment_areas", "table_e_examiner_conclusions"],
+    "large": ["table_a_exam_level", "table_b_products_reviewed", "table_c_assessment_areas", "table_e_examiner_conclusions"],
+    "other": ["table_a_exam_level"]
+  },
+  "expected_if_present": ["table_d_distribution_measures", "ltd_peers"],
+  "allowed_overall_ratings": ["Outstanding", "Satisfactory", "Needs to Improve", "Substantial Noncompliance"],
+  "targets": {
+    "evidence_linkage": 1.0,
+    "wrong_entity_links": 0,
+    "critical_exact": 0.99,
+    "conclusion_precision": 0.95,
+    "conclusion_recall": 0.95
+  }
+}
