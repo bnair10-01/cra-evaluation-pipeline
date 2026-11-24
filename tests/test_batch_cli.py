@@ -24,7 +24,7 @@ class FakeBatches:
 
 class Env(unittest.TestCase):
     def setUp(self):
-        self.d=tempfile.TemporaryDirectory();self.addCleanup(self.d.cleanup);self.dir=Path(self.d.name)
+        self.d=tempfile.TemporaryDirectory(ignore_cleanup_errors=True);self.addCleanup(self.d.cleanup);self.dir=Path(self.d.name)
         self.db=runstate.init_staging(self.dir/'s.sqlite',ROOT);self.addCleanup(self.db.close)
         self.ledger=Budget(self.dir/'l.sqlite',25)
         self.dirs={k:self.dir/k for k in ('cache','raw','proposals')}
@@ -104,6 +104,7 @@ class CliTests(unittest.TestCase):
         r=self.run_cli('extract','--group','holdout','--run-id','x','--yes-spend')
         self.assertNotEqual(r.returncode,0);self.assertIn('frozen',r.stderr+r.stdout)
     @unittest.skipUnless((ROOT/'reports/final_904bed5b30cc793e19d4.json').is_file(),'project data not present')
+    @unittest.skipUnless((ROOT/'data/raw').is_dir(),'source PDFs are not stored in git (e.g. in CI)')
     def test_offline_preflight_passes_and_never_needs_a_key(self):
         r=self.run_cli('preflight');self.assertEqual(r.returncode,0,r.stdout+r.stderr);self.assertIn('44/44',r.stdout)
     def test_online_preflight_without_key_fails_cleanly(self):

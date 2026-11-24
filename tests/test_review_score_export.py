@@ -1,4 +1,5 @@
 import csv,json,sqlite3,tempfile,unittest
+from contextlib import closing
 from pathlib import Path
 from cra_acquisition import runstate,validate,review,score,handoff,packet,rssd
 from cra_acquisition.paths import ROOT
@@ -16,7 +17,7 @@ def proposal(pe='PE1'):
 
 class Env(unittest.TestCase):
     def setUp(self):
-        self.d=tempfile.TemporaryDirectory();self.addCleanup(self.d.cleanup);self.dir=Path(self.d.name)
+        self.d=tempfile.TemporaryDirectory(ignore_cleanup_errors=True);self.addCleanup(self.d.cleanup);self.dir=Path(self.d.name)
         self.db=runstate.init_staging(self.dir/'s.sqlite',ROOT);self.addCleanup(self.db.close)
         save(self.db,'PE1',bundle(),proposal())
         runstate.set_status(self.db,'RUN','PE1','staged')
@@ -66,11 +67,13 @@ class ReviewTests(Env):
         with self.assertRaises(ValueError):review.attest_pages(self.db,'PE1','s'*64,[2],'  ')
         self.add_flag('percent_sum');fid=runstate.open_flags(self.db,'RUN','PE1')[0]['flag_id']
         with self.assertRaises(ValueError):review.resolve_flag(self.db,fid,'waived','no')
-        review.resolve_flag(self.db,fid,'waived','checked the printed table; rounding in source',reviewer='B. Nair');review.mark_reviewed(self.db,'RUN','PE1')
+        review.resolve_flag(self.db,fid,'waived','checked the printed table; rounding in source',reviewer='R. Reviewer');review.mark_reviewed(self.db,'RUN','PE1')
     def test_accept_copies_atomically_backs_up_and_is_idempotent(self):
         review.mark_reviewed(self.db,'RUN','PE1');self.db.commit()
         research=self.dir/'research.sqlite'
-        research.write_bytes((ROOT/'data/research.sqlite').read_bytes()) if (ROOT/'data/research.sqlite').is_file() else None
+        if (ROOT/'data/research.sqlite').is_file():research.write_bytes((ROOT/'data/research.sqlite').read_bytes())
+        else:   # data/*.sqlite is not in git (e.g. in CI): build an empty research database from the tracked schema
+            with closing(sqlite3.connect(research)) as c:c.executescript((ROOT/'schemas/research_schema.sql').read_text(encoding='utf-8'))
         r=review.accept(self.dir/'s.sqlite',research,'RUN','PE1',ROOT,backup_dir=self.dir/'bk')
         with sqlite3.connect(research) as c:
             self.assertEqual(c.execute('select agency_id from table_a_exam_level').fetchone()[0],'14807')
@@ -138,7 +141,7 @@ class PacketTests(unittest.TestCase):
     def test_forms_have_no_model_output_and_round_trip(self):
         inv=validate.inventory();forms=packet.form_columns(COLS,inv)
         self.assertIn('source_page',forms['table_e_examiner_conclusions']);self.assertNotIn('conclusion_id',forms['table_e_examiner_conclusions'])
-        with tempfile.TemporaryDirectory() as d:
+        with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as d:
             d=Path(d)
             with (d/'table_c_assessment_areas.csv').open('w',newline='',encoding='utf-8') as f:
                 w=csv.writer(f);w.writerow(forms['table_c_assessment_areas']);w.writerow(['PE1','Honolulu MSA','','','full scope'])
@@ -160,7 +163,7 @@ class RssdTests(unittest.TestCase):
         self.assertEqual(out['c']['status'],'conflict');self.assertEqual(out['d']['status'],'unmatched')
         self.assertEqual(out['e']['rssd_id'],'0638850');self.assertEqual(out['f']['rssd_id'],'222')   # leading zeros preserved / normalised
     def test_incomplete_enumeration_is_an_error(self):
-        with tempfile.TemporaryDirectory() as d:
+        with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as d:
             pages=[dict(data=[dict(data=dict(CERT=1))],meta=dict(total=5)),dict(data=[],meta=dict(total=5))]
             with self.assertRaises(ValueError):rssd.fetch_snapshot(d,fetch=lambda url:pages.pop(0),sleep=0)
 
@@ -207,13 +210,13 @@ class CoverageTests(unittest.TestCase):
         pred=[self.row('p',D,'bank_count_pct',1.0)]
         s=score.measure([],pred,{'p'},coverage={'p':[D]});self.assertEqual(s['per_table'][D]['false_addition'],1)
     def test_submit_validates_coverage(self):
-        with tempfile.TemporaryDirectory() as d:
+        with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as d:
             with self.assertRaises(ValueError):packet.submit_reference(d,Path(d)/'o','R','a','b',True,{'PE1'},coverage={'PE1':['not_a_table']})
             with self.assertRaises(ValueError):packet.submit_reference(d,Path(d)/'o','R','a','b',True,{'PE1'},coverage={'OTHER':['table_c_assessment_areas']})
 
 class EmptySubmissionTests(unittest.TestCase):
     def test_an_empty_forms_folder_is_refused_and_writes_nothing(self):
-        with tempfile.TemporaryDirectory() as d:
+        with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as d:
             forms=Path(d)/'forms';forms.mkdir();out=Path(d)/'out'
             for t in ('table_a_exam_level','table_c_assessment_areas'):
                 (forms/f'{t}.csv').write_text('pe_id,aa_name,source_page\n',encoding='utf-8')   # headers only
@@ -295,7 +298,7 @@ class EvaluationViewTests(unittest.TestCase):
         db.execute('create table table_a_exam_level(pe_id text,agency_id text,exam_date text,exam_type text,rating_overall text)')
         db.execute("insert into rssd_crosswalk values('FDIC','14807','123','matched')")
         docs={'p1':dict(agency='FDIC',agency_id='14807',institution_name='A'),'p2':dict(agency='OCC',agency_id='9',institution_name='B')}
-        with tempfile.TemporaryDirectory() as d:
+        with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as d:
             write_evaluation_view(db,docs,Path(d)/'e.csv')
             rows=list(csv.DictReader((Path(d)/'e.csv').open(encoding='utf-8')))
         self.assertEqual([(r['pe_id'],r['rssd_id']) for r in rows],[('p1','123'),('p2','')])

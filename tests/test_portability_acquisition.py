@@ -18,7 +18,7 @@ RECORD=dict(agency='FDIC',agency_id='0014807',exam_date='2015-12-01',pe_id='FRAM
 
 class AcquireTests(unittest.TestCase):
     def setUp(self):
-        self.d=tempfile.TemporaryDirectory();self.addCleanup(self.d.cleanup);self.root=Path(self.d.name)/'root with spaces é'
+        self.d=tempfile.TemporaryDirectory(ignore_cleanup_errors=True);self.addCleanup(self.d.cleanup);self.root=Path(self.d.name)/'root with spaces é'
         self.root.mkdir();self.pdf=make_pdf(self.root/'src.pdf',[dict(lines=TEXT)]).read_bytes()
     def test_download_is_read_only_hash_checked_without_leftovers(self):
         r=retrieve.acquire(self.root,RECORD,FakeResolver(self.pdf))
@@ -38,7 +38,7 @@ class AcquireTests(unittest.TestCase):
 
 class LockTests(unittest.TestCase):
     def test_second_writer_cannot_take_the_run_lock(self):
-        with tempfile.TemporaryDirectory() as d:
+        with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as d:
             lock=Path(d)/'run.lock'
             with FileLock(lock):
                 with self.assertRaises(Timeout):FileLock(lock).acquire(timeout=0.1)
@@ -70,14 +70,14 @@ class ClientPolicyTests(unittest.TestCase):
 
 class ConfigPortabilityTests(unittest.TestCase):
     def test_cra_root_override(self):
-        with tempfile.TemporaryDirectory() as d:
+        with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as d:
             code="from cra_acquisition import __main__ as a, paths; print(a.ROOT, paths.ROOT)"
             out=subprocess.run([sys.executable,'-c',code],env={**os.environ,'CRA_ROOT':d},capture_output=True,text=True)
             self.assertEqual(out.stdout.split(),[str(Path(d).resolve())]*2,out.stderr)
     def test_requested_works_without_development_config_or_database(self):
         frame=[dict(agency='OCC',agency_id='14911',exam_date='2020-08-03',institution_name='HAWAII NATIONAL BANK',city='HONOLULU',state='HI',exam_type='intermediate small',rating='Satisfactory',pe_id='P1',date_basis='x',source_line=1,source_sha256='h')]
         spec=[dict(request_id='r1',institution_name='Hawaii National Bank',agency='OCC',exam_year=2020)]
-        with tempfile.TemporaryDirectory() as d:
+        with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as d:
             got,unresolved=workflow.requested(frame,spec,Path(d)/'missing.json',Path(d)/'missing.sqlite')
         self.assertEqual([r['pe_id'] for r in got],['P1']);self.assertEqual(unresolved,[])
     def test_workflow_validation_errors_are_explicit(self):
@@ -87,7 +87,7 @@ class ConfigPortabilityTests(unittest.TestCase):
             with self.assertRaises(ValueError):workflow.custom_draw(frame,args['count'],args['years'],args['agencies'],args['seed'],(),args.get('minimum',0))
         with self.assertRaises(ValueError):workflow.custom_draw(frame,5,(2000,2030),['OCC'],1)   # shortage
     def test_json_writer_never_leaves_partial_file(self):
-        with tempfile.TemporaryDirectory() as d:
+        with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as d:
             p=Path(d)/'r.json'
             class Bad:pass
             with self.assertRaises(TypeError):cio.write_json(p,{'x':Bad()})

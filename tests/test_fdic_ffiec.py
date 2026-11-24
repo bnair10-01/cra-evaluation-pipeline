@@ -13,7 +13,7 @@ class FfiecDateTests(unittest.TestCase):
              'EXM_CRA_PUB_DTE':'12/01/2024','SYS_EXTRN_FILE_ID':'2024/8250_240722.PDF'}
         ]}).encode()
         row = fdic_rows(body,'','https://crapes.fdic.gov/publish/')[0]
-        with TemporaryDirectory() as tmp:
+        with TemporaryDirectory(ignore_cleanup_errors=True) as tmp:
             export = Path(tmp)/'crarating.txt'
             matching = '08250\t3\t20241201\tBANK OF WIGGINS\tWIGGINS\tMS\t192262\t2\t1\n'
             wrong_agency = matching.replace('\t3\t','\t1\t')

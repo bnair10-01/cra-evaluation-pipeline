@@ -8,7 +8,7 @@ from cra_acquisition.tables import read_row,read_table,category,parse_token
 
 class PrepareTests(unittest.TestCase):
     def setUp(self):
-        self.d=tempfile.TemporaryDirectory();self.addCleanup(self.d.cleanup);self.dir=Path(self.d.name)
+        self.d=tempfile.TemporaryDirectory(ignore_cleanup_errors=True);self.addCleanup(self.d.cleanup);self.dir=Path(self.d.name)
     def test_every_page_class_and_labels(self):
         p=make_pdf(self.dir/'Ünï cøde spaced name.pdf',[dict(kind='text',lines=TEXT),dict(kind='image'),dict(kind='ocr',lines=TEXT),dict(kind='blank'),dict(kind='landscape',lines=['x'*30])],labels=[(0,'ROMAN_LOWER',1)])
         b=prepare_pdf(p)

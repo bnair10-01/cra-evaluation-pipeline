@@ -36,7 +36,7 @@ class IoTests(unittest.TestCase):
             with self.assertRaises(ValueError):cio.loads(bad)
         self.assertEqual(cio.loads('{"a":[1,2]}'),{'a':[1,2]})
     def test_atomic_exclusive_and_unicode_paths(self):
-        with tempfile.TemporaryDirectory() as d:
+        with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as d:
             p=Path(d)/'dir with spaces'/'é ü.json'
             cio.write_json(p,{'x':'ü'},exclusive=True)
             with self.assertRaises(FileExistsError):cio.write_json(p,{'x':2},exclusive=True)
@@ -62,7 +62,7 @@ class MoneyTests(unittest.TestCase):
 
 class LedgerTests(unittest.TestCase):
     def setUp(self):
-        self.d=tempfile.TemporaryDirectory();self.addCleanup(self.d.cleanup);self.path=Path(self.d.name)/'ledger é.sqlite'
+        self.d=tempfile.TemporaryDirectory(ignore_cleanup_errors=True);self.addCleanup(self.d.cleanup);self.path=Path(self.d.name)/'ledger é.sqlite'
     def test_cap_is_locked_and_raise_needs_reason(self):
         b=Budget(self.path,2)
         with self.assertRaises(BudgetError):Budget(self.path,100)   # tamper attempt
@@ -87,7 +87,7 @@ class LedgerTests(unittest.TestCase):
 
 class AnthropicTests(unittest.TestCase):
     def setUp(self):
-        self.d=tempfile.TemporaryDirectory();self.addCleanup(self.d.cleanup);self.dir=Path(self.d.name)
+        self.d=tempfile.TemporaryDirectory(ignore_cleanup_errors=True);self.addCleanup(self.d.cleanup);self.dir=Path(self.d.name)
         self.ledger=Budget(self.dir/'l.sqlite',25)
     def call(self,p,content='hello',**kw):
         return p.call('sys',content,SCHEMA,1000,self.ledger,self.dir/'raw',**kw)

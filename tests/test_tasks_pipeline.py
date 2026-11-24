@@ -38,7 +38,7 @@ def default_handler(system,content,n):
 
 class Env(unittest.TestCase):
     def setUp(self):
-        self.d=tempfile.TemporaryDirectory();self.addCleanup(self.d.cleanup);self.dir=Path(self.d.name)
+        self.d=tempfile.TemporaryDirectory(ignore_cleanup_errors=True);self.addCleanup(self.d.cleanup);self.dir=Path(self.d.name)
         self.db=runstate.init_staging(self.dir/'s.sqlite',ROOT);self.addCleanup(self.db.close)
         self.ledger=Budget(self.dir/'l.sqlite',25)
         self.dirs={k:self.dir/k for k in ('cache','raw','proposals')}

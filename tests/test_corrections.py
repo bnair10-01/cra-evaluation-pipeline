@@ -10,7 +10,7 @@ class CorrectionTests(Env):
         self.assertIsNotNone(self.db.execute("select 1 from sqlite_master where name='doc_status'").fetchone())
     def correct(self,**kw):
         a=dict(db=self.db,bundle=bundle(),pe_id='PE1',table='table_a_exam_level',record_id='PE1',field='rating_overall',new_value='Outstanding',page=2,
-               quote='The bank is rated "Satisfactory" overall.',reason='the cover table shows Outstanding; checked against the PDF',reviewer='B. Nair');a.update(kw)
+               quote='The bank is rated "Satisfactory" overall.',reason='the cover table shows Outstanding; checked against the PDF',reviewer='R. Reviewer');a.update(kw)
         return review.add_correction(**a)
     def test_a_correction_needs_supporting_text_a_reason_and_a_name(self):
         for bad in (dict(reviewer=' '),dict(reason='short'),dict(table='nope'),dict(field='pe_id'),dict(page=99),dict(record_id='ZZZ',table='table_b_products_reviewed')):

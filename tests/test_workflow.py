@@ -12,7 +12,7 @@ class WorkflowTests(unittest.TestCase):
         self.assertEqual((row['agency_id'],row['exam_date']),('564856','2020-01-13'))
         self.assertTrue(row['pdf_url'].endswith('/CRA/DownloadPDF/564856_20200113'))
     def test_ffiec_quarantines_conflicting_rows(self):
-        with tempfile.TemporaryDirectory() as d:
+        with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as d:
             p=Path(d)/'crarating.txt'
             good='14\t2\t20200102\tA Bank\tA\tDE\t1\t2\t2\n'
             conflict='15\t3\t20200202\tB Bank\tB\tDE\t1\t2\t2\n'
@@ -38,7 +38,7 @@ class WorkflowTests(unittest.TestCase):
         from cra_acquisition.__main__ import digest
         def record(name):
             return dict(pe_id=name,agency='FDIC',exam_type='small',exam_date='2020-01-01')
-        with tempfile.TemporaryDirectory() as d:
+        with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as d:
             root=Path(d); (root/'reports').mkdir()
             verified=root/'reserve.pdf'; verified.write_bytes(b'fixture'); verified.chmod(0o444)
             plan=dict(run_id='resume',pilot=False,years=[2020,2020],named=[],

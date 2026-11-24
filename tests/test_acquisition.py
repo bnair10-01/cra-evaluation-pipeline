@@ -23,11 +23,11 @@ class AcquisitionTests(unittest.TestCase):
     def test_invalid_listing(self):
         with self.assertRaises(ValueError):occ_rows(b'<html>Error</html>','https://www.occ.gov')
     def test_manifest_ambiguity(self):
-        with tempfile.TemporaryDirectory() as d:
+        with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as d:
             p=Path(d)/'manifest.json';p.write_text(json.dumps({'requests':[dict(request_id='a',agency='OCC',institution_name='Example')]}))
             with self.assertRaises(ValueError):manifest(p)
     def test_download_resume_collision_invalid_pdf(self):
-        with tempfile.TemporaryDirectory() as d:
+        with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as d:
             root=Path(d);(root/'schemas').mkdir();(root/'data').mkdir()
             source=Path(__file__).resolve().parents[1]/'schemas/acquisition_schema.sql'
             (root/'schemas/acquisition_schema.sql').write_bytes(source.read_bytes());c=connect(root)
@@ -54,7 +54,7 @@ if __name__=='__main__':unittest.main()
 
 class DiscoveryTests(unittest.TestCase):
     def test_repeat_discovery_and_ambiguous_matches(self):
-        with tempfile.TemporaryDirectory() as d:
+        with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as d:
             root=Path(d);(root/'schemas').mkdir();(root/'data').mkdir()
             source=Path(__file__).resolve().parents[1]/'schemas/acquisition_schema.sql'
             (root/'schemas/acquisition_schema.sql').write_bytes(source.read_bytes());c=connect(root)

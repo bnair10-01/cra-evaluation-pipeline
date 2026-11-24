@@ -10,7 +10,7 @@ from test_tasks_pipeline import Env,bundle,default_handler,Script,COLS
 
 class AttemptTests(unittest.TestCase):
     def test_attempts_are_counted_per_run_so_a_new_run_can_try_again(self):
-        with tempfile.TemporaryDirectory() as d:
+        with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as d:
             b=Budget(Path(d)/'l.sqlite',150);b.run='run-1'
             for _ in range(3):b.reserve('k',.01)
             with self.assertRaises(BudgetError) as cm:b.reserve('k',.01)
@@ -18,19 +18,19 @@ class AttemptTests(unittest.TestCase):
             b.run='run-2';b.reserve('k',.01)                      # fresh allowance, same ledger and same cap
             self.assertEqual(Budget(Path(d)/'l.sqlite').summary()['cap'],150.0)
     def test_without_a_run_label_the_old_total_limit_still_applies(self):
-        with tempfile.TemporaryDirectory() as d:
+        with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as d:
             b=Budget(Path(d)/'l.sqlite');[b.reserve('k',.01) for _ in range(3)]
             with self.assertRaises(BudgetError):b.reserve('k',.01)
     def test_an_existing_ledger_gets_the_run_column_without_losing_rows(self):
         import sqlite3
-        with tempfile.TemporaryDirectory() as d:
+        with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as d:
             p=Path(d)/'old.sqlite';c=sqlite3.connect(p)
             c.executescript("CREATE TABLE settings(key TEXT PRIMARY KEY,value TEXT NOT NULL);INSERT INTO settings VALUES('cap_micro','25000000');CREATE TABLE reservations(id INTEGER PRIMARY KEY,task TEXT NOT NULL,maximum INTEGER NOT NULL,actual INTEGER,status TEXT NOT NULL,price_version TEXT,note TEXT);CREATE TABLE cap_changes(id INTEGER PRIMARY KEY,old_cap INTEGER,new_cap INTEGER,reason TEXT NOT NULL);INSERT INTO reservations(task,maximum,actual,status) VALUES('x',5,5,'settled')");c.commit();c.close()
             b=Budget(p);self.assertEqual(b.summary()['spent'],5e-06);b.run='r';b.reserve('x',.01)
 
 class StreamingTests(unittest.TestCase):
     def test_outputs_over_16000_tokens_are_streamed_not_refused(self):
-        with tempfile.TemporaryDirectory() as d:
+        with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as d:
             m=FakeMessages();seen={}
             class S:
                 def __enter__(s):return s
@@ -68,7 +68,7 @@ class FreezeAndOutputTests(unittest.TestCase):
     def test_a_code_change_does_not_break_a_freeze_but_a_prompt_or_effort_change_does(self):
         from cra_acquisition import review
         class P:model='m';price_version='1'
-        with tempfile.TemporaryDirectory() as d:
+        with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as d:
             f=Path(d)/'f.json';review.freeze(f,P(),'low','t',ROOT)
             real=review.freeze_state
             def other_code(*a,**k):
@@ -80,11 +80,11 @@ class FreezeAndOutputTests(unittest.TestCase):
             self.assertIn('effort',str(cm.exception))
     def test_outputs_get_a_new_name_instead_of_a_refusal(self):
         from cra_acquisition.io import write_json_new,read_json
-        with tempfile.TemporaryDirectory() as d:
+        with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as d:
             p=Path(d)/'out.json';a=write_json_new(p,{'v':1});b=write_json_new(p,{'v':2});c=write_json_new(p,{'v':3})
             self.assertEqual(a,p);self.assertEqual(len({a,b,c}),3);self.assertEqual([read_json(x)['v'] for x in (a,b,c)],[1,2,3])
     def test_names_and_sizes_come_from_the_project_config(self):
         from cra_acquisition.paths import project_config
-        with tempfile.TemporaryDirectory() as d:
+        with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as d:
             (Path(d)/'config').mkdir();(Path(d)/'config/project.json').write_text('{"expected_documents": 60}')
             c=project_config(d);self.assertEqual((c['expected_documents'],c['scan_quota']),(60,4))   # override one value, keep the other defaults

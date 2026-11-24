@@ -67,5 +67,5 @@ class VisionTests(PipeEnv):
         csvp=self.dir/'scans'/'pages_to_attest.csv';text=csvp.read_text().splitlines();hdr,rows=text[0],text[1:]
         rows[0]=rows[0].rstrip(',')+',Y' if rows[0].endswith(',') is False else rows[0]+'Y';csvp.write_text('\n'.join([hdr]+rows))
         with runstate.connect(self.dir/'s.sqlite') as db:
-            n=audit.attest_from_sheet(db,man,csvp,'B. Nair');self.assertEqual(n,1)
+            n=audit.attest_from_sheet(db,man,csvp,'R. Reviewer');self.assertEqual(n,1)
             from cra_acquisition import reviewstore;self.assertEqual(reviewstore.open_store(ROOT).db.execute('select count(*) from attestations').fetchone()[0],1)

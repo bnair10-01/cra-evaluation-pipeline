@@ -13,16 +13,16 @@ class AutoTests(unittest.TestCase):
         self.assertFalse(s['properties']['facts']['items']['additionalProperties'])
         facts={'PE1':[dict(table='table_c_assessment_areas',record='Honolulu AA',field='aa_name',value='Honolulu AA',page=3),
                       dict(table='table_c_assessment_areas',record='Honolulu AA',field='review_scope',value='full scope',page=3)]}
-        with tempfile.TemporaryDirectory() as d:
+        with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as d:
             f=autocode.write_forms(facts,d);rows=autocode.read_forms(f,autocode.inventory(),T.research_columns())
             self.assertEqual({(r['field'],r['value']) for r in rows},{('aa_name','Honolulu AA'),('review_scope','full scope')})
             res=autocode.submit(f,Path(d)/'sub','m',{'PE1'});self.assertEqual(json.loads(Path(res['path']).read_text())['reference_kind'],'model_generated')
     def test_empty_transcription_is_refused(self):
-        with tempfile.TemporaryDirectory() as d:
+        with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as d:
             f=autocode.write_forms({},d)
             with self.assertRaises(ValueError):autocode.submit(f,Path(d)/'s','m',{'PE1'})
     def test_run_sends_images_caches_and_resumes(self):
-        with tempfile.TemporaryDirectory() as d:
+        with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as d:
             msgs=FakeMessages(response=FakeResponse(text=json.dumps(dict(facts=[dict(table='table_a_exam_level',record='A',field='agency',value='OCC',page=1)]))))
             prov=Anthropic(client=NS(messages=msgs,models=None));led=Budget(Path(d)/'l.sqlite',150)
             from pdfs import make_pdf,TEXT
@@ -53,7 +53,7 @@ class TruncationTests(unittest.TestCase):
     def setUp(self):
         from pdfs import make_pdf,TEXT
         import hashlib
-        self.d=tempfile.TemporaryDirectory();self.addCleanup(self.d.cleanup);d=Path(self.d.name)
+        self.d=tempfile.TemporaryDirectory(ignore_cleanup_errors=True);self.addCleanup(self.d.cleanup);d=Path(self.d.name)
         pdf=make_pdf(d/'a.pdf',[dict(lines=TEXT)]*5)
         self.rec=dict(pe_id='PE1',path='a.pdf',pages=5,sha256=hashlib.sha256(pdf.read_bytes()).hexdigest());self.d_=d
         self.led=Budget(d/'l.sqlite',150)
