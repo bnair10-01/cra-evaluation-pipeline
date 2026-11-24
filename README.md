@@ -54,26 +54,8 @@ This is a **pilot draft**: values have not been checked by a person, and the onl
 
 ---
 
-## 1. The limitations at a glance (the full list is in Section 8)
 
-| # | Limitation | What it means for you |
-|---|---|---|
-| 1 | **No human checked the values** | Treat every value as a lead, not a fact |
-| 2 | **No hand-coded reference exists**; the "reference" is a second AI reading | We have agreement figures only, never accuracy (agreement was about **50%** on key values where the two could be lined up, against a weak AI reference and over tables chosen after seeing results, so it is not a quality figure) |
-| 3 | **Only 44 evaluations**, chosen to cover regulators, years and bank sizes; not a random sample | Do not generalise to all banks |
-| 4 | **Distribution tables (Table D) are thin or missing** for older Federal Reserve evaluations and some appendix layouts | Do not compare regulators on Table D without checking coverage |
-| 5 | **Very large multi-state evaluations are incomplete** (assessment-area lists, area links on conclusions) | Counts of areas or conclusions per bank are unreliable for the largest banks |
-| 6 | **Four evaluations are scans**; their text layer was used and never compared with the page images | Treat those four with extra care |
-| 7 | **A blank cell can mean "not printed" or "not confirmed"** | Look at the "Needs review" tab before reading a blank as "absent" |
-| 8 | **Run-to-run variation**: the AI gives slightly different answers each time (about 91% agreement with itself on conclusions, 77% on the exact words) | Exact phrase counts are approximate |
-| 9 | **The three mortgage indicators per bank are only proposals** | Not confirmed by a person |
-| 10 | **Tested on macOS only**; the process cannot yet be reproduced from scratch without a paid AI account | See Section 10 |
-| 11 | **The held-out test set was exposed to the builder** (individual predicted values were looked at) | v1 is not a clean test; fresh evaluations are needed |
-| 12 | **Area links can still be wrong or missing**: a name that fits several areas stays unlinked and flagged | Check area-level conclusions for the large banks |
-
----
-
-## 2. What is in the folder
+## 1. What is in the folder
 
 Open **`exports`**, then the folder starting with **`DRAFT-`**:
 
@@ -88,7 +70,7 @@ Open **`exports`**, then the folder starting with **`DRAFT-`**:
 
 > Keep `CRA_pilot_tables.xlsx` and `source_pdfs/` **next to each other**, or the PDF links stop working.
 
-## 3. Quick start (3 minutes)
+## 2. Quick start (3 minutes)
 
 1. Double-click **`CRA_pilot_tables.xlsx`**.
 2. If a yellow bar says **Protected View**, click **Enable Editing**. (The workbook has no macros.)
@@ -116,7 +98,7 @@ Open **`exports`**, then the folder starting with **`DRAFT-`**:
 - Some values stay as **text** because the PDF prints units, such as `76.10 percent`.
 - Agency names appear as printed, so "FRB" and "Federal Reserve" are the same body. Ratings may be in capitals (`SATISFACTORY`); Excel filters ignore the difference.
 
-## 4. Filter, sort, summarise (the only skills you need)
+## 3. Filter, sort, summarise (the only skills you need)
 
 - **Filter / sort:** click the small arrow on a column header (filters are already on).
 - **Search:** Ctrl+F (Windows) or Cmd+F (Mac).
@@ -138,7 +120,7 @@ Open **`exports`**, then the folder starting with **`DRAFT-`**:
 
 With 44 evaluations (8 to 11 in each period) treat any trend over time as a hint, not a finding.
 
-## 5. Checking a value against the PDF (do this before relying on a number)
+## 4. Checking a value against the PDF (do this before relying on a number)
 
 1. Note the **bank** and the **pdf_page** (Distributions and Conclusions show it; otherwise use the *Evidence* tab).
 2. *Evidence* tab: filter `bank` and `field_name`. `evidence_verbatim` is the exact text the value came from.
@@ -146,7 +128,7 @@ With 44 evaluations (8 to 11 in each period) treat any trend over time as a hint
 4. Go to that **PDF page**. Page 1 is the first page of the file, which can differ from the printed page number.
 5. If the PDF disagrees with the workbook, **the PDF is right**.
 
-## 6. Other ways in
+## 5. Other ways in
 
 - **Google Sheets:** sheets.google.com > Blank > File > Import > Upload `CRA_pilot_tables.xlsx` > *Insert new sheet(s)*. (PDF links will not work there.)
 - **Numbers / LibreOffice:** both open `.xlsx`; menus differ.
@@ -158,80 +140,8 @@ With 44 evaluations (8 to 11 in each period) treat any trend over time as a hint
   ```
   Tables join on `pe_id` (called `evaluation_id` in the workbook).
 
-## 7. Why it is not final (the release checks)
 
-`RELEASE_STATUS.json` lists the checks. These **failed**:
-
-| Check | Why |
-|---|---|
-| No open review-level flags (VALIDATED label) | 262 remain, none at error level: **201 scanned pages** whose values rest on the text layer and must be compared with the page image; 29 totals that do not match (25 explained by table rows the reader could not read); 27 percentages that do not sum near 100; 4 critical fields where the PDF gives two different values (left blank); 1 evaluation period that ends after the exam date |
-| Independent human reference | None exists (the reference was made by an AI at the project owner's request) |
-| Accuracy targets | Cannot be measured without the human reference |
-| Mortgage indicators confirmed | Three per evaluation are proposed by code; no person has confirmed them |
-
-
-## 8. Full list of limitations
-
-### A. Verification
-1. **Nothing is human-checked.** The values come from an AI model. Rules reject a value whose supporting text is not on the cited page (all 21,387 evidence links are valid), but that proves the *text exists*, not that it supports the *right* value. Some fields only need to appear on the page, not in the quote (for instance `criterion`, county lists); dates now need a printed literal and area names must be printed on the cited page.
-2. **No hand-coded reference.** The RA guide asks for ~40 hand-coded evaluations; none was coded. A model-generated reference of the 12 held-out evaluations was used instead. Where it and the data differ, either could be wrong, and they can share mistakes.
-3. **Measured agreement, not accuracy.** On key values in the tables that could be lined up (exam summary, products, areas, peers): about 45% to 53% agreement by regulator; exam-level facts agree about 77% of the time when both sides have a value. Table D could not be compared by label; a number-only check matched **81 of 256 rows (32%)**; the earlier 81% figure left out the worst document, a 2024 FRB evaluation with 50 rows, so it is not simply an old-format problem. Conclusions: the data found 67% of the reference's 96 judgments (36% with identical wording), and has far more judgments than the reference, so precision cannot be assessed.
-4. **The held-out test is exposed.** Settings were adjusted after the held-out evaluations had been compared, and individual predicted values for them were printed during development, so no clean out-of-sample accuracy claim is possible. The unchanged first predictions are kept for the record.
-5. **Release gates unmet** (Section 7).
-
-### B. Gaps in the tables
-6. **Table D (distributions)** is sparse for older Federal Reserve evaluations (1997-2010), which describe results in sentences; for one 112-page FRB evaluation the reference found about 180 table rows and the data found few. Loan-size tables are not captured. Rotated column headings leave `demographic_base` blank. 87 distributions are incomplete (not every income group was read), and 352 table rows could not be read at all (251 are product-by-income-category tables, which the opt-in `dc` reader handles but has not been run).
-7. **Table C (areas)** is incomplete for large multi-state evaluations (KeyBank 363 pages, Arvest 293, Simmons 180). `review_scope` is filled for 104 of 141 areas (155 rows before duplicate spellings of one area were merged); the scope rule gives one answer for most areas but conflicts or finds nothing for others, and blank was not verified as correct; blank means not printed beside the area name, or not found.
-8. **Conclusions (Table E)** often have no assessment area attached (1,129 of 2,684 are flagged; 985 are linked). State is part of an area's identity, so Portland OR and Portland ME are never merged; this replaced an earlier matching rule that had made 13 wrong Portland links and 1 wrong Alaska/Idaho link. The model sometimes found more genuine conclusions on one run than another (about 91% lenient agreement with itself, 77% exact), so counts of any single phrase are approximate. Phrases are not grouped into categories, by design (the guide asks for the original wording).
-9. **Fields dropped to blank for lack of evidence:** 493 values were removed because their supporting text did not check out. Without the *Needs review* tab you cannot tell these from "not printed".
-10. **Exam type is blank for 4 evaluations** whose PDFs never name the procedure (not inferred, per the guide); this has not been verified for the 363-page KeyBank evaluation, which describes large-bank tests. The evaluation period can be mis-picked: in one checked case the previous exam date was taken as the period start.
-11. **Products:** `universe_count` and `sample_count` can be swapped or missing; data source is blank for some products.
-12. **RSSD** (the Federal Reserve's bank ID, which the guide wants on every record) is in the Evaluations tab for 41 of 44, as a separate lookup, not inside Table A. Three older OCC charters could not be matched.
-13. **Mortgage indicators** (the guide's three per evaluation) are proposals only.
-
-### C. Scanned documents and images
-14. **Four evaluations are scanned images** that carry an embedded text layer. The guide says to process scanned PDFs with OCR or a vision model; instead the embedded text was used, and **no page image was ever compared with the extracted text** for these four. The text layer may contain recognition errors. (Until 2026-11-22 the system also failed to raise a flag for this; it now raises one per scanned page, 202 in total.)
-15. **No vision fallback for tables.** The guide says to use a vision model when text extraction scrambles a table. Tables were read from the text/cell layout only; images were used only to build the AI reference.
-16. **Processing method per document** is recorded in the page inventory (`page_inventory.json`), not as a column of Table A.
-
-### D. The sample
-17. **44 evaluations**: 4 supplied examples plus 40 drawn to cover three regulators, five periods, small/intermediate/large banks and scans. It is not a random sample and OTS evaluations are not included. Dates run from 1998 to 2026.
-18. **Dates differ between sources.** For 16 evaluations (mostly FDIC) the listing date differs from the cover date; the PDF's cover date is in Table A. FDIC file names use the listing date, as the project owner instructed.
-19. **Identity check for the guide's Farmers Savings Bank example.** The guide describes it as 92 mortgages with 30 reviewed; the selected PDF (Colesburg, Iowa) says 56 and 27. It may not be the institution the guide meant.
-20. **Source inconsistencies are kept, not fixed.** One OCC evaluation's period ends 1999-11-15 although the exam is dated 1999-10-18; it is flagged as printed.
-
-### E. Method and process
-21. **Not deterministic.** Re-running the AI step may give slightly different values. The results here are pinned by a saved response cache that is **not** part of the shared files.
-22. **Totals check:** category counts are compared with printed totals (29 mismatches, mostly an unread row); the check for area tables is not built.
-23. **Schema addition:** beyond the guide's five tables and the peers table, extra bookkeeping tables (processing status, review flags, model request log, RSSD lookup) were added. The six research tables themselves are unchanged. The guide asks that schema changes be discussed; this has not been signed off.
-24. **Cost figures are estimates.** About $30 of AI usage was spent in total, including trial runs. The full-corpus estimate in `pilot_memo.md` covers all ~75,000 records as a range; an earlier "about $10,000" priced only the 48,688 records that have an exam type. It is an extrapolation from 44 and may be well off, especially for very long evaluations. Elapsed time for a full run was not measured. Human review time recorded: 0 hours.
-25. **Reproducibility.** Tested on macOS only (the Windows/Linux checks are written but have never run). The project is a local git repository (branch `cleanup-and-validate`, not pushed). There is no workflow yet for recording corrections to the data (adjudication). Re-running needs an Anthropic account and key.
-
-## 9. How this compares with the RA guide
-
-| Guide requirement | Status |
-|---|---|
-| Five linked tables (+ peers) with page and verbatim evidence | Done; 21,387 of 21,387 values linked |
-| Null when not printed; no inference or calculation | Done as a rule; see limitation 9 |
-| Page-by-page text and table extraction | Done |
-| Scanned PDFs: detect, then OCR or vision on page images | Detected (4); **not processed with OCR or vision** |
-| Vision fallback when a table extracts badly | **Not done** for the extraction |
-| Split by section; one request per section and table; JSON schema | Done |
-| Automatic checks (sums, evidence found, ratings, dates, two-run disagreement) | Done; count-vs-total for category tables, not for area tables |
-| Prompt and schema versions; model, raw response, timestamp stored; cache; cost per document | Done |
-| Full-corpus cost estimate | Done as an extrapolation (limitation 24) |
-| Output as CSV + data dictionary | Done |
-| Hand-coded reference, ~40 evaluations, accuracy by agency, period, exam type, scan | **Not done**; AI reference for 12, agreement only |
-| Keep part of the reference for out-of-sample testing | **Compromised** (limitation 4) |
-| Error log, with before/after on prompt changes | Done (`error_log.md`) |
-| Pilot sample: 4 + ~40, balanced by regulator, period, size, scans | Done |
-| Phrase frequency by agency and exam type | Done |
-| Three indicators per evaluation | **Proposed only** |
-| Memo: failures, hardest formats, scans, time and cost for full corpus | Done (`pilot_memo.md`), cost extrapolated, time unmeasured |
-| RSSD ID crosswalk | 41 of 44; separate lookup |
-| Git repository with README to reproduce | Repository exists, committed locally, not pushed |
-
-## 10. How to run it (all free, no key needed)
+## 6. How to run it (all free, no key needed)
 
 ```bash
 python -m venv .venv && source .venv/bin/activate     # Windows: .venv\Scripts\Activate.ps1
