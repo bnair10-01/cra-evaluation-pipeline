@@ -52,12 +52,6 @@ This is a **pilot draft**: values have not been checked by a person, and the onl
 
 **In one sentence:** 44 public bank evaluations (PDFs written by US bank regulators under the Community Reinvestment Act) were turned into spreadsheet-style tables by an AI model, and this folder explains how to open those tables, analyse them, and, most importantly, **how far to trust them**.
 
-> ## READ THIS FIRST: this is a DRAFT, and nobody has checked it
-> - An AI model read the PDFs. **No person has compared its output with the PDFs.**
-> - The RA guide requires accuracy to be measured against a **hand-coded reference set**. That was **not done**: the only reference is a second AI reading, so we can say how often two AI readings **agree**, not how often the data is **correct**.
-> - The export is labelled **UNVERIFIED**. No error-level problem is open, but 262 review-level flags remain (201 are scanned pages waiting for a person), and four things need a person (see "Why it is not final").
-> - **Check any number against its PDF page before you use it.** Section 5 shows how, in one minute.
-
 ---
 
 ## 1. The limitations at a glance (the full list is in Section 8)
